@@ -3,7 +3,7 @@
 This repository contains utilities for setting up an archive and web
 server for perfSONAR workshops.
 
-**THIS IS A WORK IN PROGRESS.***
+**THIS IS A WORK IN PROGRESS.**
 
 
 ## Installation
