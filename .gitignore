@@ -1,0 +1,11 @@
+# To be provided by the user
+hosts.csv
+ssh-key
+
+# Build by-products
+hosts-clean.csv
+ip-auth
+mesh.json
+		
+# Other detritus
+*~

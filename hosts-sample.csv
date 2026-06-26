@@ -1,0 +1,26 @@
+#
+# Sample Testpoint List
+#
+# Fields::
+#
+#  1 - Host name
+#  2 - Private IP
+#  3 - Public IP
+#
+# Fields 2 and 3 can be identical if they're the same.
+#
+
+# Archive and Grafana system.  This must be named 'archive'.
+archive,192.0.2.100,198.51.100.100
+
+# Testpoints, which can have any name.
+tp1,192.0.2.1,198.51.100.1
+tp2,192.0.2.2,198.51.100.2
+tp3,192.0.2.3,198.51.100.3
+tp4,192.0.2.4,198.51.100.4
+tp5,192.0.2.5,198.51.100.5
+tp6,192.0.2.6,198.51.100.6
+tp7,192.0.2.7,198.51.100.7
+tp8,192.0.2.8,198.51.100.8
+tp9,192.0.2.9,198.51.100.9
+tp10,192.0.2.10,198.51.100.10

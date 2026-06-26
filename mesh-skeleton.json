@@ -1,0 +1,111 @@
+{
+    "addresses": {
+    },
+
+    "groups": {
+	"testpoints": {
+	    "type": "mesh",
+	    "addresses": [
+	    ]
+	}
+    },
+
+        "tests": {
+	"latencybg": {
+            "type": "latencybg",
+            "spec": {
+		"source": "{% address[0] %}",
+		"dest": "{% address[1] %}",
+		"packet-interval": 0.1,
+		"packet-count": 600
+            }
+	},
+	"rtt": {
+            "type": "rtt",
+            "spec": {
+		"source": "{% address[0] %}",
+		"dest": "{% address[1] %}"
+	    }
+	},
+	"throughput": {
+            "type": "throughput",
+            "spec": {
+		"source": "{% address[0] %}",
+		"dest": "{% address[1] %}",
+		"duration": "PT10S"
+	    }
+	},
+	"trace": {
+            "type": "trace",
+            "spec": {
+		"source": "{% address[0] %}",
+		"dest": "{% address[1] %}"
+	    }
+	}
+    },
+
+    "archives": {
+	"workshop": {
+            "archiver": "http",
+            "data": {
+		"schema": 2,
+		"_url": "https://10.128.0.28/logstash",
+		"op": "put",
+		"_headers": {
+                    "x-ps-observer": "{% scheduled_by_address %}",
+                    "Content-Type": "application/json",
+                    "Authorization":"Basic MumbleMumbleMumble"
+		}
+	    }
+	}
+    },
+
+    "schedules": {
+	"rtt": {
+	    "repeat": "PT30S"
+	},
+	"throughput": {
+	    "repeat": "PT10M",
+	    "slip": "PT10M",
+	    "sliprand": false
+	},
+	"trace": {
+	    "repeat": "PT30S"
+	}
+    },
+
+    "tasks": {
+	"latencybg": {
+            "group": "testpoints",
+            "test": "latencybg",
+            "archives": [
+		"workshop"
+            ]
+	},
+	"rtt": {
+            "group": "testpoints",
+            "test": "rtt",
+            "schedule": "rtt",
+            "archives": [
+		"workshop"
+            ]
+	},
+	"throughput": {
+            "group": "testpoints",
+            "test": "throughput",
+            "schedule": "throughput",
+            "archives": [
+		"workshop"
+            ]
+	},
+	"trace": {
+            "group": "testpoints",
+            "test": "trace",
+            "schedule": "trace",
+            "archives": [
+		"workshop"
+            ]
+	}
+    }
+
+}
