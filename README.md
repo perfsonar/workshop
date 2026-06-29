@@ -3,6 +3,9 @@
 This repository contains utilities for setting up an archive and web
 server for perfSONAR workshops.
 
+**Note:** The sample SSH key included in this repostitory is a
+  throwaway.
+
 **THIS IS A WORK IN PROGRESS.***
 
 

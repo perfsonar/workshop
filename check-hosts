@@ -1,0 +1,18 @@
+#!/bin/sh -e
+#
+# Input is a clean hosts.csv with SSH addresses in field 3.
+#
+
+while read LINE
+do
+    NAME=$(echo "${LINE}" | cut -d , -f 1)
+    ADDRESS=$(echo "${LINE}" | cut -d , -f 3)
+    printf "${NAME}... "
+    ssh -q \
+	 -i "$1" \
+	 -o StrictHostKeyChecking=no \
+	 -o GlobalKnownHostsFile=/dev/null \
+	 -o UserKnownHostsFile=/dev/null \
+	 "psworkshop@${ADDRESS}" \
+	 echo OK
+done

@@ -45,6 +45,11 @@ TO_DIST_CLEAN += $(SSH_KEY)
 build: $(MESH) $(IP_AUTH_LIST) $(SSH_KEY)
 	@true
 
+
+check: $(HOSTS_CLEAN) $(SSH_KEY)
+	./check-hosts ssh-key < hosts-clean.csv
+
+
 ### INDEX_HTML := index.html
 ### WEB_ROOT := /var/www/html/lab
 ### 
