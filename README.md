@@ -6,7 +6,7 @@ server for perfSONAR workshops.
 **Note:** The sample SSH key included in this repostitory is a
   throwaway.
 
-**THIS IS A WORK IN PROGRESS.***
+**THIS IS A WORK IN PROGRESS.**
 
 
 ## Installation
